@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Made Br Siregar — Cyber Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #f5f1ed;
+    --dark-brown: #3a2f28;
+    --espresso: #2c1f14;
+    --mocha: #5c3d2e;
+    --latte: #7a6552;
+    --gold: #d4a574;
+    --gold-light: #e8c9a0;
+    --mist: #e8e2d8;
+    --text-main: #2c1f14;
+    --text-muted: #7a6552;
+    --text-light: #a89878;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-main);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 50%, #f5f1ed 100%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 241, 237, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(92, 61, 46, 0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--espresso);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--espresso); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #5c3d2e 50%, #fbf7f1 50%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -10%; top: 10%;
+    width: 55%; height: 80%;
+    background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--latte);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2.5rem; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name em { font-style: italic; color: rgba(255, 255, 255, 0.9); }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 420px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.7);
+    padding-bottom: 0.3rem;
+    transition: all 0.3s;
+  }
+
+  .hero-cta:hover { color: #f8e8d4; gap: 1.2rem; }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero .avatar-ring {
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 0.8rem;
+    border: 1px solid rgba(92, 61, 46, 0.16);
+    box-shadow: 0 24px 50px rgba(92, 61, 46, 0.10);
+  }
+
+  .hero .avatar-ring::before,
+  .hero .avatar-ring::after {
+    display: none;
+  }
+
+  .hero .avatar-placeholder {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .avatar-ring {
+    position: relative;
+    width: 340px; height: 340px;
+  }
+
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .avatar-ring::after {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .avatar-placeholder {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at top, #fdf7f0 0%, #f5ede2 45%, #efe2d1 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06), 0 18px 40px rgba(0,0,0,0.08);
+  }
+
+  .avatar-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .avatar-placeholder svg { width: 60px; height: 60px; opacity: 0.3; }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 2rem; height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--espresso);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  #article .section-label,
+  #contact .section-label {
+    color: rgba(245, 241, 237, 0.95);
+  }
+
+  #article .section-label::before,
+  #contact .section-label::before {
+    background: rgba(245, 241, 237, 0.7);
+  }
+
+  #article .section-title,
+  #contact .section-title {
+    color: #ffffff;
+  }
+
+  #contact .contact-inner p,
+  #contact .contact-link {
+    color: rgba(245, 241, 237, 0.95);
+  }
+
+  #contact .contact-link svg {
+    stroke: rgba(245, 241, 237, 0.9);
+  }
+
+  #contact .contact-link:hover { color: #ffffff; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #5c3d2e, transparent);
+    margin: 0 4rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 2;
+    margin-bottom: 1.2rem;
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .expertise-item {
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(92, 61, 46, 0.22);
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.3s;
+  }
+
+  .expertise-item:hover { border-color: var(--gold); }
+
+  .expertise-item h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .expertise-item p { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; }
+
+  /* PROJECTS */
+  .projects-bg { background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 100%); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(92, 61, 46, 0.22);
+    padding: 2rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--latte));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .project-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--latte);
+    margin-bottom: 1rem;
+  }
+
+  .project-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--espresso);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .video-embed {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    background: rgba(245, 241, 237, 0.95);
+    margin-bottom: 0;
+    display: block;
+  }
+
+  .drive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    text-decoration: none;
+    border: 1px solid rgba(92, 61, 46, 0.22);
+    padding: 0.7rem 1.2rem;
+    transition: all 0.3s;
+  }
+
+  .drive-link:hover { border-color: var(--gold); color: var(--espresso); }
+
+  /* ARTICLE */
+  .article-card {
+    border: 1px solid rgba(92, 61, 46, 0.22);
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    transition: border-color 0.3s;
+  }
+
+  .article-card:hover { border-color: var(--gold-light); }
+
+  .article-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .article-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.8; }
+
+  .project-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 0.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    transition: color 0.3s;
+  }
+
+  .project-link:hover { color: var(--mocha); }
+
+  /* CERTIFICATES */
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .certificates-grid a img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .certificates-grid a:hover img {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+
+  /* COMMUNITY */
+  .community-bg { background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 100%); }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .community-card {
+    padding: 2rem;
+    border: 1px solid rgba(92, 61, 46, 0.22);
+    background: rgba(255, 255, 255, 0.95);
+    transition: border-color 0.3s;
+  }
+
+  .community-card:hover { border-color: var(--gold); }
+
+  .community-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--espresso);
+    margin-bottom: 0.3rem;
+  }
+
+  .community-card .role {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--latte);
+    margin-bottom: 0.8rem;
+  }
+
+  .community-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .contact-inner .section-label { justify-content: center; }
+  .contact-inner .section-label::before { display: none; }
+
+  .contact-inner p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .contact-link svg {
+    width: 22px; height: 22px;
+    stroke: var(--latte);
+    transition: stroke 0.3s;
+  }
+
+  .contact-link:hover { color: var(--espresso); }
+  .contact-link:hover svg { stroke: var(--espresso); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid rgba(92, 61, 46, 0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    background: rgba(245, 241, 237, 0.5);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease both; }
+  .hero-name { animation: fadeUp 0.8s ease 0.15s both; }
+  .hero-title { animation: fadeUp 0.8s ease 0.25s both; }
+  .hero-desc { animation: fadeUp 0.8s ease 0.35s both; }
+  .hero-cta { animation: fadeUp 0.8s ease 0.45s both; }
+  .avatar-ring { animation: fadeUp 0.8s ease 0.3s both; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .hero-visual { margin-top: 3rem; }
+    .hero::after { display: none; }
+    section { padding: 5rem 2rem; }
+    .divider { margin: 0 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .article-card { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .avatar-ring { width: 260px; height: 260px; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .contact-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SILENT AUTOPLAY MUSIC -->
+<audio id="bgMusic" loop autoplay muted>
+  <source src="music/bg.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Made Br Siregar</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#article">Article</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Cyber Security Student — Polibatam</div>
+    <h1 class="hero-name">Made<br><em>Br Siregar</em></h1>
+    <p class="hero-title">Security Analyst in the Making</p>
+    <p class="hero-desc">
+      A cyber security student who builds, breaks, and defends. From penetration testing to SIEM implementation — exploring the full spectrum of digital defense across six semesters at Polibatam University.
+    </p>
+    <a href="#projects" class="hero-cta">
+      View My Work
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-ring">
+      <div class="avatar-placeholder">
+        <img src="asset/profile.jpeg" alt="Made Br Siregar">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about" style="background: linear-gradient(180deg, #fbf7f1 0%, #f5f1ed 100%);">
+  <div class="section-label">About</div>
+  <div class="section-title">Shaping Skills<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic;">Across Six Semesters</em></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a sixth-semester Cyber Security student at Polibatam University, Batam. My academic journey has taken me through a wide range of security disciplines — from classical cryptography to real-world SIEM deployments in a full SOC environment.</p>
+      <p>I am drawn to both the offensive and defensive sides of security. Understanding how attacks are engineered is what sharpens my ability to defend against them. Each project I take on brings me one step closer to becoming a well-rounded security professional.</p>
+      <p>Beyond the technical, I believe security is also about communication — being able to articulate threats, write clearly, and educate others. That conviction led me to publish an article on digital security awareness for a wider public audience.</p>
+    </div>
+    <div class="expertise-grid reveal">
+      <div class="expertise-item">
+        <h4>Penetration Testing</h4>
+        <p>Web app security using PTES methodology and OWASP Top 10</p>
+      </div>
+      <div class="expertise-item">
+        <h4>SIEM & SOC</h4>
+        <p>Wazuh, TheHive, Cortex, MISP — real-time threat detection</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Network Security</h4>
+        <p>OPNsense, Suricata IDS, GNS3 simulation environments</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Cryptography</h4>
+        <p>Caesar Cipher, One-Time-Pad implementation in Python GUI</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Attack & Defense</h4>
+        <p>Red/Blue Team exercises, DDoS simulation, SQLi detection</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Threat Intelligence</h4>
+        <p>Incident analysis, hardening recommendations, MISP sharing</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section class="projects-bg" id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">Selected Work</div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-tag">Penetration Testing — Web Application</div>
+      <h3>Vulnerability Assessment and Penetration Testing</h3>
+      <p>A comprehensive web application penetration test conducted under NDA using the PTES methodology and OWASP Top 10:2021 framework — covering vulnerability identification, classification, exploitation, and structured security reporting.</p>
+      <a href="https://www.youtube.com/watch?v=xmlkwVZREAc" target="_blank" style="position:relative; display:block; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/xmlkwVZREAc/0.jpg" style="width:100%; border-radius:6px; transition:0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-tag">SIEM — Red Team / Blue Team</div>
+      <h3>Pengembangan SIEM dan Attack and Defense</h3>
+      <p>A Wazuh-based SIEM deployment with integrated Attack & Defense methodology. Red Team conducted penetration testing while Blue Team performed real-time detection, system hardening, and security reconfiguration to improve infrastructure resilience.</p>
+      <a href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=pengembangan-siem-dan-attack-and-defense--rks414&id=Mzc3OQ==&ta=Ng==&id_tim=NDU0NQ==" target="_blank" rel="noopener" style="position:relative; display:block; overflow:hidden;">
+        <img src="asset/Pengembangan Siem Attack and Defense.jpeg" style="width:100%; border-radius:6px; margin-bottom:10px; display:block;">
+      </a>
+      <a class="drive-link" href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=pengembangan-siem-dan-attack-and-defense--rks414&id=Mzc3OQ==&ta=Ng==&id_tim=NDU0NQ==" target="_blank" rel="noopener">
+        Detail Project
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-tag">SIEM — SOC Infrastructure</div>
+      <h3>Well Architect SIEM Implementation — SOC 9</h3>
+      <p>A fully integrated SOC environment combining OPNsense + Suricata network security with a complete SIEM stack (Wazuh, TheHive, Cortex, MISP). Attack simulations included brute force, SQL injection, and malicious file uploads for real-time incident detection and response.</p>
+      <a href="https://drive.google.com/file/d/1ITfjPog780-ER9j-gtDMI1KMTIffBFBR/view" target="_blank" rel="noopener" style="position:relative; display:block; overflow:hidden;">
+        <img src="asset/Well Architect SIEM Implementation.jpeg" style="width:100%; border-radius:6px; margin-bottom:10px; display:block;">
+      </a>
+      <a class="drive-link" href="https://drive.google.com/file/d/1ITfjPog780-ER9j-gtDMI1KMTIffBFBR/view" target="_blank" rel="noopener">
+        View Demo Recording
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-tag">Network Security — GNS3</div>
+      <h3>DDOSDefend Matrix</h3>
+      <p>A CLI-based DDoS simulation and defense tool built in GNS3, implementing three advanced attack methods — UDP Flood, Slowloris, and Ping Flood — powered by Data Structure algorithms for studying mitigation strategies.</p>
+      <a href="https://www.youtube.com/watch?v=fB9N7fkuWWg" target="_blank" style="position:relative; display:block; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/fB9N7fkuWWg/0.jpg" style="width:100%; border-radius:6px; display:block;">
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-tag">Cryptography — Python GUI</div>
+      <h3>Pengembangan Aplikasi Kriptografi Klasik</h3>
+      <p>A desktop application implementing Caesar Cipher and One-Time-Pad (OTP) cryptographic methods with a custom Python GUI using CustomTkinter — converting plaintext to ciphertext with a clean visual interface.</p>
+      <a href="https://www.youtube.com/watch?v=jPLKQb_IUZg" target="_blank" style="position:relative; display:block; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/jPLKQb_IUZg/0.jpg" style="width:100%; border-radius:6px; display:block;">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARTICLE -->
+<section id="article" style="background: linear-gradient(180deg, #5c3d2e 0%, #442c21 100%); color: #f5f1ed;">
+  <div class="section-label">Publication</div>
+  <div class="section-title">Written Work</div>
+
+  <!-- Card 1: WhatsApp -->
+  <div class="article-card reveal" style="margin-bottom: 1.5rem;">
+    <div>
+      <div class="project-tag" style="margin-bottom:0.8rem;">Article — Mahasiswa Indonesia</div>
+      <h3>Waspada Pembajakan WhatsApp, Ancaman Nyata di Era Digital</h3>
+      <p>An article exploring the growing threat of WhatsApp account hijacking in the digital era — examining social engineering tactics, low digital security awareness, and rising data breach cases as the root causes. Published for a general Indonesian audience to raise cyber security awareness.</p>
+    </div>
+    <a href="https://mahasiswaindonesia.id/waspada-pembajakan-whatsapp-ancaman-nyata-di-era-digital/" target="_blank" rel="noopener" class="project-link">
+      Read Article
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Card 2: AndroGoat -->
+  <div class="article-card reveal" style="margin-bottom: 1.5rem;">
+    <div>
+      <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
+      <h3>Android App Security Testing (AndroGoat)</h3>
+      <p>A comprehensive security research writeup documenting 33 vulnerabilities found in the AndroGoat application — covering root detection bypass, insecure data storage, network interception, input validation flaws, and more using Frida, Burp Suite, and ADB.</p>
+    </div>
+    <a href="https://medium.com/@madebrsiregar/android-app-security-testing-androgoat-a708ec8156e6" target="_blank" rel="noopener" class="project-link">
+      Read Article
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Card 3: Wazuh -->
+  <div class="article-card reveal">
+    <div>
+      <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
+      <h3>How I Installed Wazuh on a VM: A Step-by-Step Walkthrough</h3>
+      <p>A practical guide documenting the full installation process of Wazuh SIEM on a virtual machine — covering environment setup, configuration, and key decisions made along the way for a functional security monitoring deployment.</p>
+    </div>
+    <a href="https://medium.com/@madebrsiregar/how-i-installed-wazuh-on-a-vm-a-step-by-step-walkthrough-d6de52dbfda2" target="_blank" rel="noopener" class="project-link">
+      Read Article
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATES -->
+<section id="certificates" style="background: linear-gradient(180deg, #fbf7f1 0%, #f5f1ed 100%);">
+  <div class="section-label">Credentials</div>
+  <div class="section-title">Certifications</div>
+  <div class="certificates-grid">
+
+    <a href="https://www.credly.com/badges/00205662-7190-4515-9890-4f1982d8b7e9/print" target="_blank" rel="noopener">
+      <img src="asset/certif-cisco-ctm.jpg" alt="Cyber Threat Management — Cisco">
+    </a>
+    <a href="https://www.credly.com/badges/55ad605a-74d6-4ba0-b544-b80d788f94c3/public_url" target="_blank" rel="noopener">
+  <img src="asset/certif-cisco-essentials.jpg" alt="Cybersecurity Essentials — Cisco">
+</a>
+  <a href="https://www.credly.com/earner/earned/badge/85b19ec9-cd6f-487e-b14d-e83f5db82709" target="_blank" rel="noopener">
+  <img src="asset/certif-cisco-c.jpg" altIntroduction to Cybersecurity  — Cisco">
+</a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMMUNITY -->
+<section class="community-bg" id="community">
+  <div class="section-label">Community</div>
+  <div class="section-title">Involvement</div>
+  <div class="community-grid">
+    <div class="community-card reveal">
+      <img src="asset/misdinar.jpeg" style="width:100%; height:160px; object-fit:cover; border-radius:6px; margin-bottom:12px;">
+      <h3>Misdinar</h3>
+      <div class="role">Member</div>
+      <p>Active member contributing through community service, collaboration, and organized events. Engaged in teamwork and social initiatives within the organization.</p>
+    </div>
+    <div class="community-card reveal">
+      <img src="asset/lektor.jpeg" style="width:100%; height:160px; object-fit:cover; border-radius:6px; margin-bottom:12px;">
+      <h3>Lektor</h3>
+      <div class="role">Member</div>
+      <p>Serving as a member responsible for readings and structured ceremonial duties as assigned.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" style="background: linear-gradient(180deg, #5c3d2e 0%, #442c21 100%); color: #f5f1ed;">
+  <div class="contact-inner">
+    <div class="section-label">Contact</div>
+    <div class="section-title" style="margin-bottom:1rem;">Get in Touch</div>
+    <p>Open to opportunities, collaborations, and conversations in the cyber security space. Reach out through any of the channels below.</p>
+    <div class="contact-links">
+      <a href="mailto:made.4332301047@students.polibatam.ac.id" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/>
+        </svg>
+        Polibatam Email
+      </a>
+      <a href="mailto:madebrsiregar@outlook.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/>
+        </svg>
+        Outlook Email
+      </a>
+      <a href="https://www.linkedin.com/in/made-br-siregar" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/madesiregar" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Made Br Siregar</span>
+  <span>&copy; 2026 All rights reserved</span>
+</footer>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  music.volume = 0.4;
+  window.addEventListener('load', () => {
+    music.muted = false;
+    music.play().catch(() => {});
+  });
+  document.addEventListener('click', () => {
+    music.muted = false;
+    music.play();
+  }, { once: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
