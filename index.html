@@ -631,9 +631,11 @@
 <body>
 
 <!-- SILENT AUTOPLAY MUSIC -->
-<audio id="bgMusic" loop autoplay muted>
-  <source src="https://drive.google.com/uc?export=download&id=1zUIWmQ8IIVFsvaSfVydQ7U9CAr6IJc4g" type="audio/mpeg">
-</audio>
+<iframe id="ytMusic" 
+  src="https://www.youtube.com/embed/MYPVQccHhAQ?autoplay=1&loop=1&playlist=MYPVQccHhAQ&controls=0&mute=1" 
+  style="display:none" 
+  allow="autoplay">
+</iframe>
 
 <!-- NAV -->
 <nav>
@@ -909,15 +911,10 @@
 </footer>
 
 <script>
-  const music = document.getElementById('bgMusic');
-  music.volume = 0.4;
-  window.addEventListener('load', () => {
-    music.muted = false;
-    music.play().catch(() => {});
-  });
+  // Unmute after user click
   document.addEventListener('click', () => {
-    music.muted = false;
-    music.play();
+    const iframe = document.getElementById('ytMusic');
+    iframe.src = iframe.src.replace('mute=1', 'mute=0');
   }, { once: true });
 
   const observer = new IntersectionObserver((entries) => {
