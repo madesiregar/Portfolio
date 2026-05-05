@@ -603,28 +603,50 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* RESPONSIVE */
+  /* ============================================
+     RESPONSIVE — MOBILE FIX
+     ============================================ */
   @media (max-width: 900px) {
     nav { padding: 1.2rem 2rem; }
     .nav-links { gap: 1.5rem; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; }
-    .hero-eyebrow { justify-content: center; }
-    .hero-desc { margin: 0 auto 2.5rem; }
-    .hero-visual { margin-top: 3rem; }
+
+    /* KEY FIX: override the 50/50 split background with solid dark brown */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 7rem 1.5rem 4rem;
+      text-align: center;
+      background: #5c3d2e !important; /* solid, no split */
+      min-height: 100svh;
+    }
+
     .hero::after { display: none; }
-    section { padding: 5rem 2rem; }
-    .divider { margin: 0 2rem; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-eyebrow::before { display: none; }
+    .hero-desc { margin: 0 auto 2.5rem; max-width: 100%; }
+    .hero-visual { margin-top: 2.5rem; }
+    .avatar-ring { width: 240px; height: 240px; }
+
+    section { padding: 5rem 1.5rem; }
+    .divider { margin: 0 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .projects-grid { grid-template-columns: 1fr; }
-    .article-card { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    .avatar-ring { width: 260px; height: 260px; }
+    .article-card { grid-template-columns: 1fr; gap: 1.2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
   }
 
   @media (max-width: 480px) {
     .nav-links { display: none; }
+    nav { padding: 1rem 1.5rem; }
     .expertise-grid { grid-template-columns: 1fr; }
     .contact-links { gap: 1.5rem; }
+
+    /* Name scales down on very small screens */
+    .hero-name { font-size: clamp(2.6rem, 13vw, 3.5rem); }
+    .hero-title { font-size: 1.05rem; }
+    .hero-desc { font-size: 0.85rem; }
+    .avatar-ring { width: 190px; height: 190px; }
+
+    .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
   }
 </style>
 </head>
@@ -783,7 +805,6 @@
   <div class="section-label">Publication</div>
   <div class="section-title">Written Work</div>
 
-  <!-- Card 1: WhatsApp -->
   <div class="article-card reveal" style="margin-bottom: 1.5rem;">
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Mahasiswa Indonesia</div>
@@ -796,7 +817,6 @@
     </a>
   </div>
 
-  <!-- Card 2: AndroGoat -->
   <div class="article-card reveal" style="margin-bottom: 1.5rem;">
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
@@ -809,7 +829,6 @@
     </a>
   </div>
 
-  <!-- Card 3: Wazuh -->
   <div class="article-card reveal">
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
@@ -831,17 +850,15 @@
   <div class="section-label">Credentials</div>
   <div class="section-title">Certifications</div>
   <div class="certificates-grid">
-
     <a href="https://www.credly.com/badges/00205662-7190-4515-9890-4f1982d8b7e9/print" target="_blank" rel="noopener">
       <img src="asset/certif-cisco-ctm.jpg" alt="Cyber Threat Management — Cisco">
     </a>
     <a href="https://www.credly.com/badges/55ad605a-74d6-4ba0-b544-b80d788f94c3/public_url" target="_blank" rel="noopener">
-  <img src="asset/certif-cisco-essentials.jpg" alt="Cybersecurity Essentials — Cisco">
-</a>
-  <a href="https://www.credly.com/earner/earned/badge/85b19ec9-cd6f-487e-b14d-e83f5db82709" target="_blank" rel="noopener">
-  <img src="asset/certif-cisco-c.jpg" altIntroduction to Cybersecurity  — Cisco">
-</a>
-
+      <img src="asset/certif-cisco-essentials.jpg" alt="Cybersecurity Essentials — Cisco">
+    </a>
+    <a href="https://www.credly.com/earner/earned/badge/85b19ec9-cd6f-487e-b14d-e83f5db82709" target="_blank" rel="noopener">
+      <img src="asset/certif-cisco-c.jpg" alt="Introduction to Cybersecurity — Cisco">
+    </a>
   </div>
 </section>
 
