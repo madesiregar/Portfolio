@@ -105,11 +105,7 @@
     pointer-events: none;
   }
 
-  .hero-text {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-  }
+  .hero-text { position: relative; z-index: 2; color: #fff; }
 
   .hero-eyebrow {
     font-size: 0.7rem;
@@ -191,9 +187,7 @@
   }
 
   .hero .avatar-ring::before,
-  .hero .avatar-ring::after {
-    display: none;
-  }
+  .hero .avatar-ring::after { display: none; }
 
   .hero .avatar-placeholder {
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
@@ -240,13 +234,10 @@
   }
 
   .avatar-placeholder img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     object-position: center;
   }
-
-  .avatar-placeholder svg { width: 60px; height: 60px; opacity: 0.3; }
 
   /* SECTIONS */
   section { padding: 7rem 4rem; }
@@ -278,30 +269,11 @@
     line-height: 1.2;
   }
 
-  #article .section-label,
-  #contact .section-label {
-    color: rgba(245, 241, 237, 0.95);
-  }
-
-  #article .section-label::before,
-  #contact .section-label::before {
-    background: rgba(245, 241, 237, 0.7);
-  }
-
-  #article .section-title,
-  #contact .section-title {
-    color: #ffffff;
-  }
-
-  #contact .contact-inner p,
-  #contact .contact-link {
-    color: rgba(245, 241, 237, 0.95);
-  }
-
-  #contact .contact-link svg {
-    stroke: rgba(245, 241, 237, 0.9);
-  }
-
+  #article .section-label, #contact .section-label { color: rgba(245, 241, 237, 0.95); }
+  #article .section-label::before, #contact .section-label::before { background: rgba(245, 241, 237, 0.7); }
+  #article .section-title, #contact .section-title { color: #ffffff; }
+  #contact .contact-inner p, #contact .contact-link { color: rgba(245, 241, 237, 0.95); }
+  #contact .contact-link svg { stroke: rgba(245, 241, 237, 0.9); }
   #contact .contact-link:hover { color: #ffffff; }
 
   .divider {
@@ -311,25 +283,10 @@
   }
 
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { font-size: 0.95rem; color: var(--text-muted); line-height: 2; margin-bottom: 1.2rem; }
 
-  .about-text p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 2;
-    margin-bottom: 1.2rem;
-  }
-
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
+  .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
   .expertise-item {
     padding: 1.2rem 1.5rem;
@@ -337,28 +294,13 @@
     background: rgba(255, 255, 255, 0.9);
     transition: border-color 0.3s;
   }
-
   .expertise-item:hover { border-color: var(--gold); }
-
-  .expertise-item h4 {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--espresso);
-    margin-bottom: 0.4rem;
-    font-weight: 500;
-  }
-
+  .expertise-item h4 { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--espresso); margin-bottom: 0.4rem; font-weight: 500; }
   .expertise-item p { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; }
 
   /* PROJECTS */
   .projects-bg { background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 100%); }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
 
   .project-card {
     background: rgba(255, 255, 255, 0.95);
@@ -369,7 +311,6 @@
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   }
-
   .project-card::before {
     content: '';
     position: absolute;
@@ -380,42 +321,11 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-
   .project-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
   .project-card:hover::before { transform: scaleX(1); }
-
-  .project-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--latte);
-    margin-bottom: 1rem;
-  }
-
-  .project-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--espresso);
-    margin-bottom: 0.8rem;
-    line-height: 1.3;
-  }
-
-  .project-card p {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-
-  .video-embed {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
-    background: rgba(245, 241, 237, 0.95);
-    margin-bottom: 0;
-    display: block;
-  }
+  .project-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--latte); margin-bottom: 1rem; }
+  .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--espresso); margin-bottom: 0.8rem; line-height: 1.3; }
+  .project-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
 
   .drive-link {
     display: inline-flex;
@@ -430,8 +340,7 @@
     padding: 0.7rem 1.2rem;
     transition: all 0.3s;
   }
-
-  .drive-link:hover { border-color: var(--gold); color: var(--espresso); }
+  .drive-link:hover { border-color: var(--gold); }
 
   /* ARTICLE */
   .article-card {
@@ -444,18 +353,8 @@
     background: rgba(255, 255, 255, 0.95);
     transition: border-color 0.3s;
   }
-
   .article-card:hover { border-color: var(--gold-light); }
-
-  .article-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--espresso);
-    margin-bottom: 0.6rem;
-    line-height: 1.3;
-  }
-
+  .article-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--espresso); margin-bottom: 0.6rem; line-height: 1.3; }
   .article-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.8; }
 
   .project-link {
@@ -472,101 +371,30 @@
     white-space: nowrap;
     transition: color 0.3s;
   }
-
   .project-link:hover { color: var(--mocha); }
 
   /* CERTIFICATES */
-  .certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .certificates-grid a img {
-    width: 100%;
-    display: block;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-
-  .certificates-grid a:hover img {
-    opacity: 0.85;
-    transform: scale(1.02);
-  }
+  .certificates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+  .certificates-grid a img { width: 100%; display: block; transition: opacity 0.3s, transform 0.3s; }
+  .certificates-grid a:hover img { opacity: 0.85; transform: scale(1.02); }
 
   /* COMMUNITY */
   .community-bg { background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 100%); }
-
-  .community-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .community-card {
-    padding: 2rem;
-    border: 1px solid rgba(92, 61, 46, 0.22);
-    background: rgba(255, 255, 255, 0.95);
-    transition: border-color 0.3s;
-  }
-
+  .community-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .community-card { padding: 2rem; border: 1px solid rgba(92, 61, 46, 0.22); background: rgba(255, 255, 255, 0.95); transition: border-color 0.3s; }
   .community-card:hover { border-color: var(--gold); }
-
-  .community-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--espresso);
-    margin-bottom: 0.3rem;
-  }
-
-  .community-card .role {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--latte);
-    margin-bottom: 0.8rem;
-  }
-
+  .community-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--espresso); margin-bottom: 0.3rem; }
+  .community-card .role { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--latte); margin-bottom: 0.8rem; }
   .community-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
 
   /* CONTACT */
   .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
   .contact-inner .section-label { justify-content: center; }
   .contact-inner .section-label::before { display: none; }
-
-  .contact-inner p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.9;
-    margin-bottom: 3rem;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  .contact-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: var(--text-muted);
-    transition: color 0.3s;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .contact-link svg {
-    width: 22px; height: 22px;
-    stroke: var(--latte);
-    transition: stroke 0.3s;
-  }
-
+  .contact-inner p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 3rem; }
+  .contact-links { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+  .contact-link { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text-muted); transition: color 0.3s; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .contact-link svg { width: 22px; height: 22px; stroke: var(--latte); transition: stroke 0.3s; }
   .contact-link:hover { color: var(--espresso); }
   .contact-link:hover svg { stroke: var(--espresso); }
 
@@ -588,7 +416,6 @@
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   .hero-eyebrow { animation: fadeUp 0.8s ease both; }
   .hero-name { animation: fadeUp 0.8s ease 0.15s both; }
   .hero-title { animation: fadeUp 0.8s ease 0.25s both; }
@@ -596,36 +423,26 @@
   .hero-cta { animation: fadeUp 0.8s ease 0.45s both; }
   .avatar-ring { animation: fadeUp 0.8s ease 0.3s both; }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ============================================
-     RESPONSIVE — MOBILE FIX
-     ============================================ */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1.2rem 2rem; }
     .nav-links { gap: 1.5rem; }
-
-    /* KEY FIX: override the 50/50 split background with solid dark brown */
     .hero {
       grid-template-columns: 1fr;
       padding: 7rem 1.5rem 4rem;
       text-align: center;
-      background: #5c3d2e !important; /* solid, no split */
+      background: #5c3d2e !important;
       min-height: 100svh;
     }
-
     .hero::after { display: none; }
     .hero-eyebrow { justify-content: center; }
     .hero-eyebrow::before { display: none; }
     .hero-desc { margin: 0 auto 2.5rem; max-width: 100%; }
     .hero-visual { margin-top: 2.5rem; }
     .avatar-ring { width: 240px; height: 240px; }
-
     section { padding: 5rem 1.5rem; }
     .divider { margin: 0 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -639,25 +456,20 @@
     nav { padding: 1rem 1.5rem; }
     .expertise-grid { grid-template-columns: 1fr; }
     .contact-links { gap: 1.5rem; }
-
-    /* Name scales down on very small screens */
     .hero-name { font-size: clamp(2.6rem, 13vw, 3.5rem); }
     .hero-title { font-size: 1.05rem; }
     .hero-desc { font-size: 0.85rem; }
     .avatar-ring { width: 190px; height: 190px; }
-
     .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
   }
 </style>
 </head>
 <body>
 
-<!-- SILENT AUTOPLAY MUSIC -->
-<iframe id="ytMusic" 
-  src="https://www.youtube.com/embed/MYPVQccHhAQ?autoplay=1&loop=1&playlist=MYPVQccHhAQ&controls=0&mute=1" 
-  style="display:none" 
-  allow="autoplay">
-</iframe>
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="background.mp3" type="audio/mpeg">
+</audio>
 
 <!-- NAV -->
 <nav>
@@ -708,30 +520,12 @@
       <p>Beyond the technical, I believe security is also about communication — being able to articulate threats, write clearly, and educate others. That conviction led me to publish an article on digital security awareness for a wider public audience.</p>
     </div>
     <div class="expertise-grid reveal">
-      <div class="expertise-item">
-        <h4>Penetration Testing</h4>
-        <p>Web app security using PTES methodology and OWASP Top 10</p>
-      </div>
-      <div class="expertise-item">
-        <h4>SIEM & SOC</h4>
-        <p>Wazuh, TheHive, Cortex, MISP — real-time threat detection</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Network Security</h4>
-        <p>OPNsense, Suricata IDS, GNS3 simulation environments</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Cryptography</h4>
-        <p>Caesar Cipher, One-Time-Pad implementation in Python GUI</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Attack & Defense</h4>
-        <p>Red/Blue Team exercises, DDoS simulation, SQLi detection</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Threat Intelligence</h4>
-        <p>Incident analysis, hardening recommendations, MISP sharing</p>
-      </div>
+      <div class="expertise-item"><h4>Penetration Testing</h4><p>Web app security using PTES methodology and OWASP Top 10</p></div>
+      <div class="expertise-item"><h4>SIEM & SOC</h4><p>Wazuh, TheHive, Cortex, MISP — real-time threat detection</p></div>
+      <div class="expertise-item"><h4>Network Security</h4><p>OPNsense, Suricata IDS, GNS3 simulation environments</p></div>
+      <div class="expertise-item"><h4>Cryptography</h4><p>Caesar Cipher, One-Time-Pad implementation in Python GUI</p></div>
+      <div class="expertise-item"><h4>Attack & Defense</h4><p>Red/Blue Team exercises, DDoS simulation, SQLi detection</p></div>
+      <div class="expertise-item"><h4>Threat Intelligence</h4><p>Incident analysis, hardening recommendations, MISP sharing</p></div>
     </div>
   </div>
 </section>
@@ -760,9 +554,7 @@
       <a href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=pengembangan-siem-dan-attack-and-defense--rks414&id=Mzc3OQ==&ta=Ng==&id_tim=NDU0NQ==" target="_blank" rel="noopener" style="position:relative; display:block; overflow:hidden;">
         <img src="asset/Pengembangan Siem Attack and Defense.jpeg" style="width:100%; border-radius:6px; margin-bottom:10px; display:block;">
       </a>
-      <a class="drive-link" href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=pengembangan-siem-dan-attack-and-defense--rks414&id=Mzc3OQ==&ta=Ng==&id_tim=NDU0NQ==" target="_blank" rel="noopener">
-        Detail Project
-      </a>
+      <a class="drive-link" href="https://pbl.polibatam.ac.id/pamerin/detail.php?title=pengembangan-siem-dan-attack-and-defense--rks414&id=Mzc3OQ==&ta=Ng==&id_tim=NDU0NQ==" target="_blank" rel="noopener">Detail Project</a>
     </div>
 
     <div class="project-card reveal">
@@ -772,9 +564,7 @@
       <a href="https://drive.google.com/file/d/1ITfjPog780-ER9j-gtDMI1KMTIffBFBR/view" target="_blank" rel="noopener" style="position:relative; display:block; overflow:hidden;">
         <img src="asset/Well Architect SIEM Implementation.jpeg" style="width:100%; border-radius:6px; margin-bottom:10px; display:block;">
       </a>
-      <a class="drive-link" href="https://drive.google.com/file/d/1ITfjPog780-ER9j-gtDMI1KMTIffBFBR/view" target="_blank" rel="noopener">
-        View Demo Recording
-      </a>
+      <a class="drive-link" href="https://drive.google.com/file/d/1ITfjPog780-ER9j-gtDMI1KMTIffBFBR/view" target="_blank" rel="noopener">View Demo Recording</a>
     </div>
 
     <div class="project-card reveal">
@@ -809,7 +599,7 @@
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Mahasiswa Indonesia</div>
       <h3>Waspada Pembajakan WhatsApp, Ancaman Nyata di Era Digital</h3>
-      <p>An article exploring the growing threat of WhatsApp account hijacking in the digital era — examining social engineering tactics, low digital security awareness, and rising data breach cases as the root causes. Published for a general Indonesian audience to raise cyber security awareness.</p>
+      <p>An article exploring the growing threat of WhatsApp account hijacking in the digital era — examining social engineering tactics, low digital security awareness, and rising data breach cases as the root causes.</p>
     </div>
     <a href="https://mahasiswaindonesia.id/waspada-pembajakan-whatsapp-ancaman-nyata-di-era-digital/" target="_blank" rel="noopener" class="project-link">
       Read Article
@@ -821,7 +611,7 @@
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
       <h3>Android App Security Testing (AndroGoat)</h3>
-      <p>A comprehensive security research writeup documenting 33 vulnerabilities found in the AndroGoat application — covering root detection bypass, insecure data storage, network interception, input validation flaws, and more using Frida, Burp Suite, and ADB.</p>
+      <p>A comprehensive security research writeup documenting 33 vulnerabilities found in the AndroGoat application — covering root detection bypass, insecure data storage, network interception, and more using Frida, Burp Suite, and ADB.</p>
     </div>
     <a href="https://medium.com/@madebrsiregar/android-app-security-testing-androgoat-a708ec8156e6" target="_blank" rel="noopener" class="project-link">
       Read Article
@@ -833,14 +623,13 @@
     <div>
       <div class="project-tag" style="margin-bottom:0.8rem;">Article — Medium</div>
       <h3>How I Installed Wazuh on a VM: A Step-by-Step Walkthrough</h3>
-      <p>A practical guide documenting the full installation process of Wazuh SIEM on a virtual machine — covering environment setup, configuration, and key decisions made along the way for a functional security monitoring deployment.</p>
+      <p>A practical guide documenting the full installation process of Wazuh SIEM on a virtual machine — covering environment setup, configuration, and key decisions made along the way.</p>
     </div>
     <a href="https://medium.com/@madebrsiregar/how-i-installed-wazuh-on-a-vm-a-step-by-step-walkthrough-d6de52dbfda2" target="_blank" rel="noopener" class="project-link">
       Read Article
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
-
 </section>
 
 <div class="divider"></div>
@@ -894,27 +683,19 @@
     <p>Open to opportunities, collaborations, and conversations in the cyber security space. Reach out through any of the channels below.</p>
     <div class="contact-links">
       <a href="mailto:made.4332301047@students.polibatam.ac.id" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
         Polibatam Email
       </a>
       <a href="mailto:madebrsiregar@outlook.com" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
         Outlook Email
       </a>
       <a href="https://www.linkedin.com/in/made-br-siregar" target="_blank" rel="noopener" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
       <a href="https://github.com/madesiregar" target="_blank" rel="noopener" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
     </div>
@@ -928,12 +709,19 @@
 </footer>
 
 <script>
-  // Unmute after user click
+  // Background music — play on first interaction
+  const music = document.getElementById('bgMusic');
+  music.volume = 0.4;
+
+  window.addEventListener('load', () => {
+    music.play().catch(() => {});
+  });
+
   document.addEventListener('click', () => {
-    const iframe = document.getElementById('ytMusic');
-    iframe.src = iframe.src.replace('mute=1', 'mute=0');
+    music.play().catch(() => {});
   }, { once: true });
 
+  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
