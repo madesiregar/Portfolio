@@ -269,9 +269,18 @@
     line-height: 1.2;
   }
 
-  #article .section-label, #contact .section-label { color: rgba(245, 241, 237, 0.95); }
-  #article .section-label::before, #contact .section-label::before { background: rgba(245, 241, 237, 0.7); }
-  #article .section-title, #contact .section-title { color: #ffffff; }
+  #exploration .section-label,
+  #article .section-label,
+  #contact .section-label { color: rgba(245, 241, 237, 0.7); }
+
+  #exploration .section-label::before,
+  #article .section-label::before,
+  #contact .section-label::before { background: rgba(245, 241, 237, 0.5); }
+
+  #exploration .section-title,
+  #article .section-title,
+  #contact .section-title { color: #ffffff; }
+
   #contact .contact-inner p, #contact .contact-link { color: rgba(245, 241, 237, 0.95); }
   #contact .contact-link svg { stroke: rgba(245, 241, 237, 0.9); }
   #contact .contact-link:hover { color: #ffffff; }
@@ -297,6 +306,39 @@
   .expertise-item:hover { border-color: var(--gold); }
   .expertise-item h4 { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--espresso); margin-bottom: 0.4rem; font-weight: 500; }
   .expertise-item p { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; }
+
+  /* TOOL CHIPS */
+  .tool-category-label {
+    grid-column: 1 / -1;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(212, 165, 116, 0.8);
+    margin-top: 1.5rem;
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+  }
+
+  .tool-category-label:first-child { margin-top: 0; }
+
+  .tool-chip {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(245, 241, 237, 0.88);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .tool-chip:hover {
+    border-color: var(--gold);
+    background: rgba(212, 165, 116, 0.12);
+    color: #ffffff;
+  }
 
   /* PROJECTS */
   .projects-bg { background: linear-gradient(135deg, #f5f1ed 0%, #f9f7f3 100%); }
@@ -475,6 +517,7 @@
   <a href="#home" class="nav-logo">Made Br Siregar</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#exploration">Exploration</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#article">Article</a></li>
     <li><a href="#certificates">Certificates</a></li>
@@ -526,6 +569,50 @@
       <div class="expertise-item"><h4>Attack & Defense</h4><p>Red/Blue Team exercises, DDoS simulation, SQLi detection</p></div>
       <div class="expertise-item"><h4>Threat Intelligence</h4><p>Incident analysis, hardening recommendations, MISP sharing</p></div>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AREA OF EXPLORATION -->
+<section id="exploration" style="background: linear-gradient(180deg, #5c3d2e 0%, #3a2318 100%); color: #f5f1ed;">
+  <div class="section-label">Toolkit</div>
+  <div class="section-title">Area of Exploration</div>
+  <p style="font-size:0.85rem; color:rgba(245,241,237,0.6); margin-bottom:3rem; max-width:520px; margin-top:-1.5rem;">
+    Tools and technologies I've encountered, used, and explored throughout my academic journey in cyber security.
+  </p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap:0.8rem;">
+
+    <div class="tool-category-label">Penetration Testing</div>
+    <div class="tool-chip">Burp Suite</div>
+    <div class="tool-chip">Frida</div>
+    <div class="tool-chip">ADB</div>
+    <div class="tool-chip">Nmap</div>
+
+    <div class="tool-category-label">SIEM & SOC</div>
+    <div class="tool-chip">Wazuh</div>
+    <div class="tool-chip">TheHive</div>
+    <div class="tool-chip">MISP</div>
+    <div class="tool-chip">Cortex</div>
+
+    <div class="tool-category-label">Network & Infrastructure</div>
+    <div class="tool-chip">OPNsense</div>
+    <div class="tool-chip">Suricata</div>
+    <div class="tool-chip">GNS3</div>
+    <div class="tool-chip">Docker</div>
+
+    <div class="tool-category-label">Dev & Scripting</div>
+    <div class="tool-chip">Python</div>
+    <div class="tool-chip">CustomTkinter</div>
+    <div class="tool-chip">Git</div>
+
+    <div class="tool-category-label">Platform & Environment</div>
+    <div class="tool-chip">Kali Linux</div>
+    <div class="tool-chip">Android Studio</div>
+    <div class="tool-chip">AVD</div>
+    <div class="tool-chip">VMware</div>
+
   </div>
 </section>
 
@@ -708,7 +795,6 @@
 </footer>
 
 <script>
-  // Background music — play on first interaction
   const music = document.getElementById('bgMusic');
   music.volume = 0.4;
 
@@ -720,7 +806,6 @@
     music.play().catch(() => {});
   }, { once: true });
 
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
